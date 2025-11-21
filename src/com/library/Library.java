@@ -60,14 +60,8 @@ public class Library{
      * @param title Title
      */
     public void searchByTitle(String title) {
-        Predicate<Book> filter = b -> b.getTitle().toLowerCase().contains(title.toLowerCase());
-        var matches = books.stream().filter(filter).toList();
-        if (matches.isEmpty()) {
-            IO.println(new LibraryItemNotFoundException("No book found with title: " + title));
-        } else {
-            // Java Lambda method reference
-            matches.forEach(Book::info);
-        }
+        Predicate<Book> titleFilter = b -> b.getTitle().toLowerCase().contains(title.toLowerCase());
+        search(title, titleFilter);
     }
 
     /**
@@ -75,12 +69,19 @@ public class Library{
      * @param author Author
      */
     public void searchByAuthor(String author) {
-        Predicate<Book> filter = b -> b.getAuthor().toLowerCase().contains(author.toLowerCase());
+        Predicate<Book> authorFilter = b -> b.getAuthor().toLowerCase().contains(author.toLowerCase());
+        // LVTI
+        search(author, authorFilter);
+    }
+
+
+    private void search(String content, Predicate<Book> filter) {
         // LVTI
         var matches = books.stream().filter(filter).toList();
         if (matches.isEmpty()) {
-            IO.println(new LibraryItemNotFoundException("No book found having author: " + author));
+            IO.println(new LibraryItemNotFoundException("No book found for: " + content));
         } else {
+            // Java Lambda method reference
             matches.forEach(Book::info);
         }
     }
