@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/Amit/Projects/github/lms</OriginalElement>
+  <nodes>
+    <node x="807.5" y="-14.5">com.library.items.Book</node>
+    <node x="1522.0" y="94.5">com.library.interfaces.Borrowable</node>
+    <node x="151.5" y="377.5">com.library.Library</node>
+    <node x="1538.0" y="330.5">com.library.interfaces.LibraryItem</node>
+    <node x="1140.0" y="269.5">com.library.items.Magazine</node>
+    <node x="711.0" y="389.5">com.library.records.LibraryRecord</node>
+    <node x="418.0" y="217.5">com.library.enums.BookStatus</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.library.Library" target="com.library.records.LibraryRecord" relationship="TO_MANY">
+      <point x="115.5" y="-82.25" />
+      <point x="647.0" y="459.75" />
+      <point x="647.0" y="362.0" />
+      <point x="687.0" y="362.0" />
+      <point x="687.0" y="465.75" />
+      <point x="-196.0" y="-76.25" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.interfaces.Borrowable" relationship="REALIZATION">
+      <point x="99.5" y="-0.0" />
+      <point x="-85.0" y="-0.0" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.items.Magazine" relationship="TO_MANY">
+      <point x="115.5" y="-82.25" />
+      <point x="647.0" y="459.75" />
+      <point x="647.0" y="362.0" />
+      <point x="-147.0" y="-0.0" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.interfaces.LibraryItem" relationship="REALIZATION">
+      <point x="99.5" y="-0.0" />
+      <point x="1447.0" y="162.0" />
+      <point x="1447.0" y="362.0" />
+      <point x="-69.0" y="-0.0" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.records.LibraryRecord" relationship="CREATE">
+      <point x="115.5" y="82.25" />
+      <point x="407.0" y="624.25" />
+      <point x="407.0" y="618.25" />
+      <point x="-196.0" y="76.25" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.items.Book" relationship="TO_MANY">
+      <point x="115.5" y="-82.25" />
+      <point x="647.0" y="459.75" />
+      <point x="647.0" y="362.0" />
+      <point x="687.0" y="362.0" />
+      <point x="687.0" y="162.0" />
+      <point x="-99.5" y="-0.0" />
+    </edge>
+    <edge source="com.library.items.Magazine" target="com.library.interfaces.LibraryItem" relationship="REALIZATION">
+      <point x="147.0" y="-0.0" />
+      <point x="-69.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.3100576553491352" showDependencies="true" x="931.5" y="356.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
