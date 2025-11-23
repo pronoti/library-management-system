@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 /**
  * Library Record is used to maintain records of borrowed library items
+ * 
  * @author A00325358 Pronoti Saha
  * @param id Id
  * @param title Title
@@ -13,3 +14,4 @@ import java.time.LocalDate;
  */
 public record LibraryRecord(int id, String title, String author, LocalDate borrowDate, LocalDate dueDate) {
 }
+

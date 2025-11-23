@@ -1,7 +1,8 @@
 package com.library.items;
 
-import com.library.enums.BookStatus;
+import com.library.enums.BorrowableItemStatus;
 import com.library.exception.LibraryException;
+import com.library.exception.LibraryOperationException;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -27,9 +28,9 @@ public final class Book implements LibraryItem, Borrowable {
      */
     public Book(int id, String title, String author) {
         // validate before initializing fields
-        if (id <= 0) throw new IllegalArgumentException("ID must be positive");
-        if (title == null || title.isEmpty()) throw new IllegalArgumentException("Title cannot be empty");
-        if (author == null || author.isEmpty()) throw new IllegalArgumentException("Author cannot be empty");
+        if (id <= 0) throw new LibraryOperationException("ID must be positive");
+        if (title == null || title.isEmpty()) throw new LibraryOperationException("Title cannot be empty");
+        if (author == null || author.isEmpty()) throw new LibraryOperationException("Author cannot be empty");
 
         this.id = id;
         this.title = title;
@@ -42,7 +43,7 @@ public final class Book implements LibraryItem, Borrowable {
      */
     @Override
     public void info() {
-        System.out.printf("%-3s | %-20s | %-20s | %s \n", id, title ,author , (isBorrowed ? BookStatus.BORROWED.value + ", Due: " + dueDate : BookStatus.AVAILABLE.value));
+        System.out.printf("%-3s | %-20s | %-20s | %s \n", id, title ,author , (isBorrowed ? BorrowableItemStatus.BORROWED.value + ", Due: " + dueDate : BorrowableItemStatus.AVAILABLE.value));
     }
 
     /**
@@ -50,7 +51,7 @@ public final class Book implements LibraryItem, Borrowable {
      * @param studentName Name of the Student
      */
     @Override
-    public void borrow(String studentName) {
+    public void borrowItem(String studentName) {
         if (!isBorrowed) {
             isBorrowed = true;
             dueDate = LocalDate.now().plusDays(7); // 7-day loan
@@ -70,7 +71,7 @@ public final class Book implements LibraryItem, Borrowable {
      * Return a book
      */
     @Override
-    public void returnBook() {
+    public void returnItem() {
         if (!isBorrowed) {
             System.out.println("Book was not borrowed.");
             return;

@@ -4,7 +4,7 @@ package com.library.exception;
  * Unchecked Library Operation Exception
  * @author A00325358 Pronoti Saha
  */
-public class LibraryOperationException extends RuntimeException {
+public sealed class LibraryOperationException extends RuntimeException permits LibraryItemNotFoundException {
 
     /**
      * Constructor

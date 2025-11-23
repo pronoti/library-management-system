@@ -15,13 +15,9 @@ public final class Magazine implements LibraryItem {
     /**
      * Magazine Constructor
      * @param title Title of the Magazine
-     * @param metaData Metadata
-     * @param optionalParams Varargs
      */
-    public Magazine(String title, Map<String, String> metaData, String ...optionalParams) {
-        this.title = title;
-        this.metaData = Optional.ofNullable(metaData).orElse(Collections.emptyMap());
-        this.optionalParams = optionalParams;
+    public Magazine(String title) {
+        this(title, Collections.emptyMap());
     }
 
     /**
@@ -30,15 +26,19 @@ public final class Magazine implements LibraryItem {
      * @param metaData Metadata
      */
     public Magazine(String title, Map<String, String> metaData) {
-        this(title, metaData, null);
+        this(title, metaData, new String[]{});
     }
 
     /**
      * Magazine Constructor
      * @param title Title of the Magazine
+     * @param metaData Metadata
+     * @param optionalParams Varargs
      */
-    public Magazine(String title) {
-        this(title, Collections.emptyMap());
+    public Magazine(String title, Map<String, String> metaData, String ...optionalParams) {
+        this.title = title;
+        this.metaData = Optional.ofNullable(metaData).orElse(Collections.emptyMap());
+        this.optionalParams = optionalParams;
     }
 
     /**

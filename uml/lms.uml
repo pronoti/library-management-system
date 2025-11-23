@@ -1,62 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Diagram>
   <ID>JAVA</ID>
-  <OriginalElement>C:/Users/Amit/Projects/github/lms</OriginalElement>
+  <OriginalElement>C:/Users/Ritu/Documents/projects/github/lms/src</OriginalElement>
   <nodes>
-    <node x="807.5" y="-14.5">com.library.items.Book</node>
-    <node x="1522.0" y="94.5">com.library.interfaces.Borrowable</node>
-    <node x="151.5" y="377.5">com.library.Library</node>
-    <node x="1538.0" y="330.5">com.library.interfaces.LibraryItem</node>
-    <node x="1140.0" y="269.5">com.library.items.Magazine</node>
-    <node x="711.0" y="389.5">com.library.records.LibraryRecord</node>
-    <node x="418.0" y="217.5">com.library.enums.BookStatus</node>
+    <node x="471.5" y="902.5">com.library.items.Book</node>
+    <node x="-195.5" y="687.5">com.library.exception.LibraryItemNotFoundException</node>
+    <node x="349.5" y="1387.5">com.library.exception.LibraryException</node>
+    <node x="15.0" y="-201.0">Main</node>
+    <node x="592.5" y="1339.5">com.library.items.Borrowable</node>
+    <node x="822.0" y="1387.5">com.library.items.LibraryItem</node>
+    <node x="165.0" y="58.5">com.library.Library</node>
+    <node x="155.0" y="566.5">com.library.records.LibraryRecord</node>
+    <node x="716.5" y="578.5">com.library.items.Magazine</node>
+    <node x="-61.5" y="1387.5">com.library.exception.LibraryOperationException</node>
+    <node x="788.5" y="154.5">com.library.enums.BorrowableItemStatus</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="com.library.Library" target="com.library.records.LibraryRecord" relationship="TO_MANY">
-      <point x="115.5" y="-82.25" />
-      <point x="647.0" y="459.75" />
-      <point x="647.0" y="362.0" />
-      <point x="687.0" y="362.0" />
-      <point x="687.0" y="465.75" />
-      <point x="-196.0" y="-76.25" />
+    <edge source="Main" target="com.library.items.Magazine" relationship="CREATE">
+      <point x="0.0" y="80.0" />
+      <point x="131.0" y="-21.0" />
+      <point x="771.0" y="-21.0" />
+      <point x="771.0" y="379.0" />
+      <point x="978.25" y="379.0" />
+      <point x="87.25" y="-140.5" />
     </edge>
-    <edge source="com.library.items.Book" target="com.library.interfaces.Borrowable" relationship="REALIZATION">
-      <point x="99.5" y="-0.0" />
-      <point x="-85.0" y="-0.0" />
+    <edge source="Main" target="com.library.exception.LibraryOperationException" relationship="CREATE">
+      <point x="0.0" y="80.0" />
+      <point x="131.0" y="1359.0" />
+      <point x="137.25" y="1359.0" />
+      <point x="66.25" y="-31.5" />
+    </edge>
+    <edge source="Main" target="com.library.items.Book" relationship="CREATE">
+      <point x="0.0" y="80.0" />
+      <point x="131.0" y="-21.0" />
+      <point x="691.0" y="-21.0" />
+      <point x="691.0" y="1299.0" />
+      <point x="521.25" y="1299.0" />
+      <point x="-49.75" y="176.5" />
+    </edge>
+    <edge source="com.library.items.Magazine" target="com.library.items.LibraryItem" relationship="REALIZATION">
+      <point x="0.0" y="140.5" />
+      <point x="0.0" y="-31.5" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.records.LibraryRecord" relationship="TO_MANY">
+      <point x="83.0" y="200.5" />
+      <point x="414.0" y="499.0" />
+      <point x="451.0" y="499.0" />
+      <point x="451.0" y="539.0" />
+      <point x="449.0" y="539.0" />
+      <point x="98.0" y="-152.5" />
+    </edge>
+    <edge source="Main" target="com.library.Library" relationship="CREATE">
+      <point x="0.0" y="80.0" />
+      <point x="131.0" y="-21.0" />
+      <point x="531.0" y="-21.0" />
+      <point x="531.0" y="519.0" />
+      <point x="248.0" y="519.0" />
+      <point x="-83.0" y="200.5" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.items.Borrowable" relationship="REALIZATION">
+      <point x="49.75" y="176.5" />
+      <point x="620.75" y="1279.0" />
+      <point x="691.0" y="1279.0" />
+      <point x="0.0" y="-79.5" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.exception.LibraryOperationException" relationship="CREATE">
+      <point x="-49.75" y="176.5" />
+      <point x="521.25" y="1279.0" />
+      <point x="451.0" y="1279.0" />
+      <point x="451.0" y="1299.0" />
+      <point x="131.0" y="1299.0" />
+      <point x="131.0" y="1359.0" />
+      <point x="137.25" y="1359.0" />
+      <point x="66.25" y="-31.5" />
     </edge>
     <edge source="com.library.Library" target="com.library.items.Magazine" relationship="TO_MANY">
-      <point x="115.5" y="-82.25" />
-      <point x="647.0" y="459.75" />
-      <point x="647.0" y="362.0" />
-      <point x="-147.0" y="-0.0" />
+      <point x="83.0" y="200.5" />
+      <point x="414.0" y="499.0" />
+      <point x="451.0" y="499.0" />
+      <point x="451.0" y="539.0" />
+      <point x="803.75" y="539.0" />
+      <point x="-87.25" y="-140.5" />
     </edge>
-    <edge source="com.library.items.Book" target="com.library.interfaces.LibraryItem" relationship="REALIZATION">
-      <point x="99.5" y="-0.0" />
-      <point x="1447.0" y="162.0" />
-      <point x="1447.0" y="362.0" />
-      <point x="-69.0" y="-0.0" />
+    <edge source="com.library.Library" target="com.library.exception.LibraryItemNotFoundException" relationship="CREATE">
+      <point x="-83.0" y="200.5" />
+      <point x="248.0" y="499.0" />
+      <point x="251.0" y="499.0" />
+      <point x="251.0" y="539.0" />
+      <point x="-49.0" y="539.0" />
+      <point x="0.0" y="-31.5" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.items.LibraryItem" relationship="REALIZATION">
+      <point x="49.75" y="176.5" />
+      <point x="620.75" y="1279.0" />
+      <point x="691.0" y="1279.0" />
+      <point x="691.0" y="1319.0" />
+      <point x="891.0" y="1319.0" />
+      <point x="0.0" y="-31.5" />
     </edge>
     <edge source="com.library.Library" target="com.library.records.LibraryRecord" relationship="CREATE">
-      <point x="115.5" y="82.25" />
-      <point x="407.0" y="624.25" />
-      <point x="407.0" y="618.25" />
-      <point x="-196.0" y="76.25" />
+      <point x="-83.0" y="200.5" />
+      <point x="248.0" y="499.0" />
+      <point x="251.0" y="499.0" />
+      <point x="251.0" y="539.0" />
+      <point x="253.0" y="539.0" />
+      <point x="-98.0" y="-152.5" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.exception.LibraryException" relationship="CREATE">
+      <point x="-49.75" y="176.5" />
+      <point x="521.25" y="1279.0" />
+      <point x="451.0" y="1279.0" />
+      <point x="0.0" y="-31.5" />
     </edge>
     <edge source="com.library.Library" target="com.library.items.Book" relationship="TO_MANY">
-      <point x="115.5" y="-82.25" />
-      <point x="647.0" y="459.75" />
-      <point x="647.0" y="362.0" />
-      <point x="687.0" y="362.0" />
-      <point x="687.0" y="162.0" />
-      <point x="-99.5" y="-0.0" />
+      <point x="83.0" y="200.5" />
+      <point x="414.0" y="499.0" />
+      <point x="451.0" y="499.0" />
+      <point x="451.0" y="539.0" />
+      <point x="571.0" y="539.0" />
+      <point x="0.0" y="-176.5" />
     </edge>
-    <edge source="com.library.items.Magazine" target="com.library.interfaces.LibraryItem" relationship="REALIZATION">
-      <point x="147.0" y="-0.0" />
-      <point x="-69.0" y="-0.0" />
+    <edge source="com.library.exception.LibraryItemNotFoundException" target="com.library.exception.LibraryOperationException" relationship="GENERALIZATION">
+      <point x="0.0" y="31.5" />
+      <point x="-49.0" y="779.0" />
+      <point x="4.75" y="779.0" />
+      <point x="-66.25" y="-31.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Compact" zoom="1.3100576553491352" showDependencies="true" x="931.5" y="356.0" />
+  <settings layout="Hierarchic Compact" zoom="0.6689802455953017" showDependencies="true" x="683.0" y="437.5" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>

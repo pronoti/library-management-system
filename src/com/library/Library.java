@@ -8,7 +8,9 @@ import com.library.records.LibraryRecord;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /**
  * library class
@@ -70,11 +72,14 @@ public class Library{
      */
     public void searchByAuthor(String author) {
         Predicate<Book> authorFilter = b -> b.getAuthor().toLowerCase().contains(author.toLowerCase());
-        // LVTI
         search(author, authorFilter);
     }
 
-
+    /**
+     * Search a book using a filter predicate
+     * @param content Search string
+     * @param filter Predicate
+     */
     private void search(String content, Predicate<Book> filter) {
         // LVTI
         var matches = books.stream().filter(filter).toList();
@@ -97,9 +102,18 @@ public class Library{
                 .filter(b -> b.getId() == id)
                 .findFirst()
                 .ifPresentOrElse(b -> {
-                    b.borrow(studentName);
-                    records.add(new LibraryRecord(b.getId(), b.getTitle(), b.getAuthor(), LocalDate.now(), LocalDate.now().plusDays(7)));
+                    b.borrowItem(studentName);
+                    records.add(createRecord(b).get());
                 }, () -> System.out.println("Book not found!"));
+    }
+
+    /**
+     * Library Record supplier
+     * @param book Book item
+     * @return Supplier of type LibraryRecord
+     */
+    private Supplier<LibraryRecord> createRecord(Book book) {
+        return () -> new LibraryRecord(book.getId(), book.getTitle(), book.getAuthor(), LocalDate.now(), LocalDate.now().plusDays(7));
     }
 
     /**
@@ -111,7 +125,19 @@ public class Library{
         books.stream()
                 .filter(b -> b.getId() == id)
                 .findFirst()
-                .ifPresentOrElse(Book::returnBook, () -> System.out.println("Book not found!"));
+                .ifPresentOrElse(updateRecords(id), () -> System.out.println("Book not found!"));
+    }
+
+    /**
+     * Consumer to return book and update records
+     * @param id Book id
+     * @return Consumer of type Book
+     */
+    private Consumer<Book> updateRecords(int id) {
+        return book -> {
+            book.returnItem();
+            records.removeIf(record -> record.id() == id);
+        };
     }
 
     /**

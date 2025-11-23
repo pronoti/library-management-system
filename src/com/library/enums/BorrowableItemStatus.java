@@ -1,10 +1,10 @@
 package com.library.enums;
 
 /**
- * Status of a Book
+ * Status of a Borrowable Item
  * @author A00325358 Pronoti Saha
  */
-public enum BookStatus {
+public enum BorrowableItemStatus {
     /**
      * Status - Available
      */
@@ -26,7 +26,8 @@ public enum BookStatus {
     /**
      * @param value Status
      */
-    private BookStatus(String value) {
+    BorrowableItemStatus(String value) {
         this.value = value;
     }
 }
+

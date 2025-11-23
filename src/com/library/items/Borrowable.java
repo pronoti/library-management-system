@@ -7,21 +7,22 @@ package com.library.items;
 public interface Borrowable {
 
     /**
-     * Borrow
+     * Borrow item
      * @param studentName Name of the student
      */
-    void borrow(String studentName);
+    void borrowItem(String studentName);
 
     /**
-     * Return Book
+     * Return item
      */
-    void returnBook();
+    void returnItem();
 
     /**
      * Default method
      */
     default void greet() {
         System.out.println("Welcome to the Library!");
+        getName();
     }
 
     /**
@@ -30,4 +31,10 @@ public interface Borrowable {
     static void libraryInfo() {
         System.out.println("Library System 2025");
     }
+
+    private void getName(){
+        System.out.println("Borrowable");
+    }
 }
+
+

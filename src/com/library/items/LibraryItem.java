@@ -1,6 +1,5 @@
 package com.library.items;
 
-
 /**
  * LibraryItem is a sealed interface
  * Permits Book and Magazine
@@ -12,3 +11,4 @@ public sealed interface LibraryItem permits Book, Magazine {
      */
     void info();
 }
+

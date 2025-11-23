@@ -4,7 +4,7 @@ package com.library.exception;
  * Item Not Found Exception
  * @author A00325358 Pronoti Saha
  */
-public class LibraryItemNotFoundException extends LibraryOperationException{
+public non-sealed class LibraryItemNotFoundException extends LibraryOperationException{
     /**
      * Constructor
      * @param message Error Message

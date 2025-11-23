@@ -15,7 +15,6 @@ import java.util.Scanner;
  * @param args Arguments
  */
 void main(String[] args) {
-
     try (Scanner sc = new Scanner(System.in)) {
         IO.println("Starting Library System");
         var library = new Library();
@@ -82,13 +81,11 @@ void main(String[] args) {
             }
         } while (choice != 7);
     }
-
-
 }
 
 /**
  * Load library with books and magazines
- * @param library
+ * @param library The Library System
  */
 private static void loadLibraryItems(Library library) {
     // Adding sample books
@@ -119,9 +116,11 @@ private static void showMenu() {
 
 /**
  * Wait for Enter to display Menu
- * @param sc
+ * @param sc Scanner
  */
 private static void waitForEnter(Scanner sc) {
     IO.println("\nPress Enter to return to the main menu...");
     sc.nextLine();
 }
+
+
