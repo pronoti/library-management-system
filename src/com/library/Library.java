@@ -13,7 +13,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
- * library class
+ * library class representing the Library System
  * @author A00325358 Pronoti Saha
  */
 public class Library{
@@ -97,7 +97,7 @@ public class Library{
      * @param studentName Student Name
      */
     public void borrowBook(int id, String studentName) {
-        // Java Stream
+        // Java Stream API
         books.stream()
                 .filter(b -> b.getId() == id)
                 .findFirst()
@@ -121,7 +121,7 @@ public class Library{
      * @param id Book Id
      */
     public void returnBook(int id) {
-        // Java Stream
+        // Java Stream API
         books.stream()
                 .filter(b -> b.getId() == id)
                 .findFirst()
