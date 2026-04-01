@@ -16,6 +16,7 @@ import java.util.Scanner;
  */
 public final class LibraryApp {
 
+    /** Menu label constant for returning to the main menu. */
     public static final String BACK_TO_MAIN_MENU = "0. Back to Main Menu";
     private final LibraryService service;
     private final Scanner scanner;
@@ -25,6 +26,12 @@ public final class LibraryApp {
         this.scanner = scanner;
     }
 
+    /**
+     * Creates and returns a fully initialised LibraryApp instance.
+     * Loads persisted data from the data/ directory on startup.
+     * @param scanner the shared Scanner for console input
+     * @return a ready-to-run LibraryApp
+     */
     public static LibraryApp getInstance(Scanner scanner){
         LibDataStore libDataStore = new LibDataStore(Path.of("data"));
         Library library = libDataStore.loadExistingOnStartup();
@@ -32,6 +39,9 @@ public final class LibraryApp {
         return new LibraryApp(libraryService, scanner);
     }
 
+    /**
+     * Starts the main menu loop and runs until the user chooses to exit.
+     */
     public void run() {
         boolean running = true;
         while (running) {

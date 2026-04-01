@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.library"},{"l":"com.library.enums"},{"l":"com.library.exception"},{"l":"com.library.items"},{"l":"com.library.records"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"l":"com.library"},{"l":"com.library.enums"},{"l":"com.library.exception"},{"l":"com.library.items"},{"l":"com.library.persistence"},{"l":"com.library.records"},{"l":"com.library.service"}];updateSearchResults();

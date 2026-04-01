@@ -38,11 +38,19 @@ public final class LibraryService {
     private final Library library;
     private final LibDataStore storage;
 
+    /**
+     * Constructs a LibraryService with the given library and storage.
+     * @param library the in-memory library domain object
+     * @param storage the file-based data store
+     */
     public LibraryService(Library library, LibDataStore storage) {
         this.library = library;
         this.storage = storage;
     }
 
+    /**
+     * Displays all catalogue items sorted by title, with a sliding-window gatherer footer.
+     */
     public void showAllItems() {
         IO.println("\n========== COMPLETE CATALOGUE ==========");
         System.out.printf("%-3s | %-25s | %-20s | %-12s | %s %n", "Id", "Title", "Author", "Genre", "Availability");
@@ -87,16 +95,29 @@ public final class LibraryService {
         IO.println("========================================");
     }
 
+    /**
+     * Searches books by title keyword.
+     * @param title the search keyword
+     */
     public void searchByTitle(String title) {
         String query = validateQuery(title);
         search(query, book -> book.getTitle().toLowerCase().contains(query.toLowerCase()));
     }
 
+    /**
+     * Searches books by author keyword.
+     * @param author the search keyword
+     */
     public void searchByAuthor(String author) {
         String query = validateQuery(author);
         search(query, book -> book.getAuthor().toLowerCase().contains(query.toLowerCase()));
     }
 
+    /**
+     * Borrows a book for the given borrower, using a Scoped Value for the session context.
+     * @param id the id of the book to borrow
+     * @param borrowerName the name of the borrower
+     */
     public void borrowBook(int id, String borrowerName) {
         String safeBorrower = borrowerName == null || borrowerName.isBlank() ? "Guest Reader" : borrowerName.trim();
         ScopedValue<String> currentBorrower = ScopedValue.newInstance();
@@ -121,6 +142,10 @@ public final class LibraryService {
                 }));
     }
 
+    /**
+     * Returns a borrowed book and removes its active borrow record.
+     * @param id the id of the book to return
+     */
     public void returnBook(int id) {
         Consumer<Book> completeReturn = book -> {
             if (book.returnItem()) {
@@ -136,6 +161,10 @@ public final class LibraryService {
                         });
     }
 
+    /**
+     * Returns the next available auto-generated book id.
+     * @return next book id
+     */
     public int nextBookId() {
         return library.getBooks().stream()
                 .mapToInt(Book::getId)
@@ -143,6 +172,13 @@ public final class LibraryService {
                 .orElse(0) + 1;
     }
 
+    /**
+     * Adds a new book to the catalogue and persists it.
+     * @param title book title
+     * @param author book author
+     * @param genre book genre
+     * @return the auto-generated id assigned to the new book
+     */
     public int addBook(String title, String author, Genre genre) {
         int id = nextBookId();
         library.addBook(new Book(id, title, author, genre));
@@ -151,12 +187,20 @@ public final class LibraryService {
         return id;
     }
 
+    /**
+     * Adds a new magazine to the catalogue and persists it.
+     * @param title magazine title
+     * @param metadata key-value metadata map (e.g. Publisher, Issue)
+     */
     public void addMagazine(String title, Map<String, String> metadata) {
         library.addMagazine(new Magazine(title, metadata));
         persist();
         IO.println("Magazine added and saved to file storage.");
     }
 
+    /**
+     * Displays the catalogue grouped by genre and partitioned by availability.
+     */
     public void browseCatalogue() {
         IO.println("\n========== CATALOGUE INSIGHTS ==========");
 
@@ -178,6 +222,10 @@ public final class LibraryService {
         IO.println("=========================================");
     }
 
+    /**
+     * Displays the statistics dashboard including stream terminal ops,
+     * localisation, and a parallel catalogue audit.
+     */
     public void showStatisticsDashboard() {
         IO.println("\n========== LIBRARY DASHBOARD ==========");
 
@@ -212,6 +260,9 @@ public final class LibraryService {
         IO.println("=======================================");
     }
 
+    /**
+     * Displays all active borrow records with a Gatherers fold summary and NIO2 file view.
+     */
     public void viewBorrowRecords() {
         IO.println("\n========== ACTIVE BORROW RECORDS ==========");
 
@@ -249,6 +300,9 @@ public final class LibraryService {
         IO.println("===========================================");
     }
 
+    /**
+     * Displays global opening hours with today's date formatted per locale.
+     */
     public void showOpeningHours() {
         IO.println("\n========== GLOBAL OPENING HOURS ==========");
         LocalDate today = LocalDate.now();
@@ -261,10 +315,18 @@ public final class LibraryService {
         IO.println("==========================================");
     }
 
+    /**
+     * Returns the absolute path of the data storage directory.
+     * @return storage directory path as a string
+     */
     public String showStorageSummary() {
         return storage.getDataDirectory().toAbsolutePath().toString();
     }
 
+    /**
+     * Returns all available genres.
+     * @return list of Genre values
+     */
     public List<Genre> genres() {
         return List.of(Genre.values());
     }

@@ -3,4 +3,6 @@ com.library
 com.library.enums
 com.library.exception
 com.library.items
+com.library.persistence
 com.library.records
+com.library.service

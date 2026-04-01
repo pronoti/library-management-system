@@ -98,12 +98,23 @@ public final class Book implements LibraryItem, Borrowable {
         return true;
     }
 
+
+    /**
+     * Restores borrow state from a persisted record without printing a receipt.
+     * Called on startup when reloading active loans from file.
+     * @param restoredBorrowDate the original borrow date read from storage
+     * @param restoredDueDate the original due date read from storage
+     */
     public void restoreBorrow(LocalDate restoredBorrowDate, LocalDate restoredDueDate) {
         borrowed = true;
         borrowDate = restoredBorrowDate;
         dueDate = restoredDueDate;
     }
 
+    /**
+     * Returns whether this book is currently on loan.
+     * @return true if borrowed, false if available
+     */
     public boolean isBorrowed() {
         return borrowed;
     }
@@ -113,19 +124,39 @@ public final class Book implements LibraryItem, Borrowable {
         return title;
     }
 
+    /**
+     * Returns the author of this book.
+     * @return author name
+     */
     public String getAuthor() {
         return author;
     }
 
+    /**
+     * Returns the unique identifier of this book.
+     * @return book id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Returns the genre of this book.
+     * @return genre
+     */
     public Genre getGenre() {
         return genre;
     }
 
+    /**
+     * Returns the due date for the current loan, or null if not borrowed.
+     * @return due date or null
+     */
     public LocalDate getDueDate() { return dueDate; }
 
+    /**
+     * Returns the date this book was borrowed, or null if not borrowed.
+     * @return borrow date or null
+     */
     public LocalDate getBorrowedDate() { return borrowDate; }
 }

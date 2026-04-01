@@ -29,6 +29,10 @@ public final class LibDataStore {
     private final Path magazinesFile;
     private final Path recordsFile;
 
+    /**
+     * Constructs a LibDataStore rooted at the given directory.
+     * @param dataDirectory path to the folder containing the data files
+     */
     public LibDataStore(Path dataDirectory) {
         this.dataDirectory = dataDirectory;
         this.booksFile = dataDirectory.resolve("books.txt");
@@ -36,6 +40,11 @@ public final class LibDataStore {
         this.recordsFile = dataDirectory.resolve("records.txt");
     }
 
+    /**
+     * Loads the library from file storage on application startup.
+     * Creates and seeds files if they do not yet exist.
+     * @return a fully populated Library instance
+     */
     public Library loadExistingOnStartup() {
         try {
             initialiseStorage();
@@ -52,6 +61,11 @@ public final class LibDataStore {
         }
     }
 
+    /**
+     * Persists the full library state (books, magazines, records) to disk.
+     * @param library the library instance to save
+     * @throws IOException if any file write fails
+     */
     public void save(Library library) throws IOException {
         initialiseStorage();
         saveBooks(library.getBooks());
@@ -59,15 +73,28 @@ public final class LibDataStore {
         saveRecords(library.getRecords());
     }
 
+    /**
+     * Reads all raw lines from the records file.
+     * @return list of raw text lines from records.txt
+     * @throws IOException if the file cannot be read
+     */
     public List<String> readRecordLines() throws IOException {
         initialiseStorage();
         return Files.readAllLines(recordsFile, StandardCharsets.UTF_8);
     }
 
+    /**
+     * Returns the path to the data directory.
+     * @return data directory path
+     */
     public Path getDataDirectory() {
         return dataDirectory;
     }
 
+    /**
+     * Returns the path to the records file.
+     * @return records.txt path
+     */
     public Path getRecordsFile() {
         return recordsFile;
     }
