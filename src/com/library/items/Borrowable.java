@@ -1,40 +1,22 @@
 package com.library.items;
 
 /**
- * Borrowable interface
+ * Borrowable sealed interface - permits only Book
  * @author A00325358 Pronoti Saha
  */
-public interface Borrowable {
+public sealed interface Borrowable permits Book {
 
     /**
      * Borrow item
      * @param studentName Name of the student
+     * @return true when the item was borrowed successfully
      */
-    void borrowItem(String studentName);
+    boolean borrowItem(String studentName);
 
     /**
      * Return item
+     * @return true when the item was returned successfully
      */
-    void returnItem();
+    boolean returnItem();
 
-    /**
-     * Default method
-     */
-    default void greet() {
-        System.out.println("Welcome to the Library!");
-        getName();
-    }
-
-    /**
-     * Static methods
-     */
-    static void libraryInfo() {
-        System.out.println("Library System 2025");
-    }
-
-    private void getName(){
-        System.out.println("Borrowable");
-    }
 }
-
-

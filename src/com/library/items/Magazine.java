@@ -1,6 +1,9 @@
 package com.library.items;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 /**
  * Magazine is an immutable library item
@@ -12,67 +15,40 @@ public final class Magazine implements LibraryItem {
     private final Map<String, String> metaData;
     private final String[] optionalParams;
 
-    /**
-     * Magazine Constructor
-     * @param title Title of the Magazine
-     */
     public Magazine(String title) {
         this(title, Collections.emptyMap());
     }
 
-    /**
-     * Magazine Constructor
-     * @param title Title of the Magazine
-     * @param metaData Metadata
-     */
     public Magazine(String title, Map<String, String> metaData) {
-        this(title, metaData, new String[]{});
+        this(title, metaData, new String[0]);
     }
 
-    /**
-     * Magazine Constructor
-     * @param title Title of the Magazine
-     * @param metaData Metadata
-     * @param optionalParams Varargs
-     */
-    public Magazine(String title, Map<String, String> metaData, String ...optionalParams) {
-        this.title = title;
-        this.metaData = Optional.ofNullable(metaData).orElse(Collections.emptyMap());
-        this.optionalParams = optionalParams;
+    public Magazine(String title, Map<String, String> metaData, String... optionalParams) {
+        this.title = Optional.ofNullable(title).orElse("Untitled Magazine").trim();
+        this.metaData = Map.copyOf(Optional.ofNullable(metaData).orElse(Collections.emptyMap()));
+        this.optionalParams = optionalParams == null ? new String[0] : optionalParams.clone();
     }
 
-    /**
-     * Get Title
-     * @return title
-     */
+    @Override
     public String getTitle() {
         return title;
     }
 
-    /**
-     * Get Metadata
-     * @return metadata
-     */
     public Map<String, String> getMetadata() {
         return new HashMap<>(metaData);
     }
 
-    /**
-     * Get Optional Parameters
-     * @return Otional Parameters
-     */
     public String[] getOptionalParams() {
-        return optionalParams;
+        return optionalParams.clone();
     }
 
-    /**
-     * Get info
-     */
     @Override
     public void info() {
-        System.out.println("Magazine: " + title + ", Metadata: " + metaData);
+        System.out.printf("%-3s | %-25s | %-20s | %-12s | %s %n",
+                "-",
+                title,
+                "Magazine",
+                "PERIODICAL",
+                "Reference only");
     }
 }
-
-
-

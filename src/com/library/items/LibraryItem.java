@@ -10,5 +10,10 @@ public sealed interface LibraryItem permits Book, Magazine {
      * Library item info
      */
     void info();
-}
 
+    /**
+     * Get title of the item
+     * @return title
+     */
+    String getTitle();
+}

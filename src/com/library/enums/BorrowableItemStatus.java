@@ -12,11 +12,7 @@ public enum BorrowableItemStatus {
     /**
      * Status - Borrowed
      */
-    BORROWED("Borrowed"),
-    /**
-     * Status - Reserved
-     */
-    RESERVED("Reserved");
+    BORROWED("Borrowed");
 
     /**
      * Status value

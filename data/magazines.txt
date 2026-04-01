@@ -1,0 +1,2 @@
+National Geographic	Publisher=National Geographic Partners	Monthly
+Nature	Publisher=Springer Nature	Weekly
