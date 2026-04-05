@@ -3,25 +3,118 @@
   <ID>JAVA</ID>
   <OriginalElement>C:/Users/Ritu/Documents/projects/github/lms</OriginalElement>
   <nodes>
-    <node x="1021.0" y="962.0">com.library.service.LibraryService</node>
-    <node x="734.5" y="200.0">com.library.enums.BorrowableItemStatus</node>
-    <node x="807.0" y="1118.0">com.library.enums.Genre</node>
-    <node x="538.0" y="-14.0">com.library.items.LibraryItem</node>
-    <node x="662.0" y="93.0">com.library.items.Borrowable</node>
-    <node x="439.5" y="262.0">com.library.exception.LibraryOperationException</node>
-    <node x="949.5" y="419.0">com.library.items.Book</node>
-    <node x="340.0" y="105.0">com.library.exception.LibraryItemNotFoundException</node>
-    <node x="652.5" y="503.0">com.library.Library</node>
-    <node x="657.0" y="1203.0">Main</node>
-    <node x="-145.0" y="950.0">com.library.persistence.LibDataStore</node>
-    <node x="345.5" y="407.0">com.library.LibraryApp</node>
-    <node x="212.0" y="1070.0">com.library.records.LibraryRecord</node>
-    <node x="-37.5" y="527.0">com.library.items.Magazine</node>
-    <node x="205.5" y="262.0">com.library.exception.LibraryException</node>
+    <node x="188.0" y="1066.0">com.library.LibraryApp</node>
+    <node x="1659.0" y="708.0">com.library.items.Borrowable</node>
+    <node x="1386.0" y="1018.0">com.library.exception.LibraryOperationException</node>
+    <node x="694.0" y="310.0">com.library.Library</node>
+    <node x="1287.0" y="272.0">com.library.items.Book</node>
+    <node x="1638.0" y="447.0">com.library.exception.LibraryException</node>
+    <node x="327.0" y="260.0">com.library.persistence.LibDataStore</node>
+    <node x="-145.0" y="553.0">com.library.records.LibraryRecord</node>
+    <node x="185.0" y="1634.0">Main</node>
+    <node x="794.0" y="739.0">com.library.service.LibraryService</node>
+    <node x="-145.0" y="1634.0">com.library.enums.BorrowableItemStatus</node>
+    <node x="1265.0" y="1348.0">com.library.exception.LibraryItemNotFoundException</node>
+    <node x="1305.0" y="-10.0">com.library.items.LibraryItem</node>
+    <node x="803.0" y="-14.0">com.library.items.Magazine</node>
+    <node x="1637.0" y="-4.0">com.library.enums.Genre</node>
   </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Compact" zoom="0.487017099430019" showDependencies="true" x="621.5" y="775.5" />
+  <edges>
+    <edge source="com.library.items.Book" target="com.library.enums.Genre" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.LibraryApp" target="com.library.persistence.LibDataStore" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.Library" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.exception.LibraryOperationException" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.items.Book" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.records.LibraryRecord" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.items.LibraryItem" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.items.Magazine" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.persistence.LibDataStore" target="com.library.items.Magazine" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.exception.LibraryException" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.LibraryApp" target="com.library.service.LibraryService" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.persistence.LibDataStore" target="com.library.Library" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.persistence.LibDataStore" target="com.library.records.LibraryRecord" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.items.Book" target="com.library.items.Borrowable" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.items.Book" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.persistence.LibDataStore" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.exception.LibraryOperationException" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.exception.LibraryItemNotFoundException" target="com.library.exception.LibraryOperationException" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.items.Magazine" target="com.library.items.LibraryItem" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.persistence.LibDataStore" target="com.library.items.Book" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.records.LibraryRecord" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.service.LibraryService" target="com.library.exception.LibraryItemNotFoundException" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.library.Library" target="com.library.items.Magazine" relationship="DEPENDENCY">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.540377358490566" showDependencies="true" x="597.3254189944132" y="896.8987430167598" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>
