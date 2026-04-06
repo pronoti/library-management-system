@@ -101,7 +101,8 @@ public final class LibraryService {
      */
     public void searchByTitle(String title) {
         String query = validateQuery(title);
-        search(query, book -> book.getTitle().toLowerCase().contains(query.toLowerCase()));
+        Predicate<Book> predicate = book -> book.getTitle().toLowerCase().contains(query.toLowerCase());
+        search(query, predicate);
     }
 
     /**
@@ -110,7 +111,8 @@ public final class LibraryService {
      */
     public void searchByAuthor(String author) {
         String query = validateQuery(author);
-        search(query, book -> book.getAuthor().toLowerCase().contains(query.toLowerCase()));
+        Predicate<Book> predicate = book -> book.getAuthor().toLowerCase().contains(query.toLowerCase());
+        search(query, predicate);
     }
 
     /**
